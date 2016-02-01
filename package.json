@@ -1,0 +1,36 @@
+{
+  "name": "postcss-web-gtk",
+  "version": "0.0.0",
+  "description": "PostCSS plugin that converts GTK3 theme files to web compatible CSS",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "gtk",
+    "gtk3",
+    "gtk+",
+    "web",
+    "linux"
+  ],
+  "author": "Wietse de Vries <wietse@devriesdev.com>",
+  "license": "MIT",
+  "repository": "Wietsedv/postcss-web-gtk",
+  "bugs": {
+    "url": "https://github.com/Wietsedv/postcss-web-gtk/issues"
+  },
+  "homepage": "https://github.com/Wietsedv/postcss-web-gtk",
+  "dependencies": {
+    "postcss": "^5.0.13"
+  },
+  "devDependencies": {
+    "ava": "^0.9.1",
+    "eslint": "^1.10.3",
+    "eslint-config-postcss": "^1.0.0"
+  },
+  "scripts": {
+    "test": "ava && eslint *.js"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-postcss/es5"
+  }
+}
