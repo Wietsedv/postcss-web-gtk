@@ -1,13 +1,17 @@
 var postcss = require('postcss');
 
+var plugins = {
+    GtkColorDefinitions: require('./lib/gtk-color-variables.js')
+};
+
 module.exports = postcss.plugin('postcss-web-gtk', function (opts) {
     opts = opts || {};
 
-    // Work with options here
+    var processor = postcss();
 
-    return function (css, result) {
+    for (var key in plugins)
+        if (plugins.hasOwnProperty(key))
+            processor.use(plugins[key]);
 
-        // Transform CSS AST here
-
-    };
+    return processor;
 });

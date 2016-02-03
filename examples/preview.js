@@ -10,5 +10,9 @@ var css = fs.readFileSync(source, "utf8");
 postcss([webGtk])
     .process(css, {from: source, to: output})
     .then(function (result) {
+        result.warnings().forEach(function (message) {
+            console.warn(message.toString());
+
+        });
         fs.writeFileSync(output, result.css);
     });

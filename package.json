@@ -22,7 +22,8 @@
   "main": "index.js",
   "dependencies": {
     "fs": "0.0.2",
-    "postcss": "^5.0.14"
+    "postcss": "^5.0.14",
+    "postcss-value-parser": "^3.2.3"
   },
   "devDependencies": {
     "ava": "^0.9.1",
