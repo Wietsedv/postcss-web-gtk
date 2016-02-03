@@ -19,8 +19,10 @@
     "url": "https://github.com/Wietsedv/postcss-web-gtk/issues"
   },
   "homepage": "https://github.com/Wietsedv/postcss-web-gtk",
+  "main": "index.js",
   "dependencies": {
-    "postcss": "^5.0.13"
+    "fs": "0.0.2",
+    "postcss": "^5.0.14"
   },
   "devDependencies": {
     "ava": "^0.9.1",
@@ -28,9 +30,10 @@
     "eslint-config-postcss": "^1.0.0"
   },
   "scripts": {
-    "test": "ava && eslint *.js"
+    "test": "ava && eslint *.js",
+    "preview": "node ./examples/preview.js"
   },
   "eslintConfig": {
-    "extends": "eslint-config-postcss/es5"
+    "extends": "eslint-config-postcss"
   }
 }

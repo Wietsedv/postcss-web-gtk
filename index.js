@@ -1,6 +1,6 @@
 var postcss = require('postcss');
 
-module.exports = postcss.plugin('postcss-browser-gtk', function (opts) {
+module.exports = postcss.plugin('postcss-web-gtk', function (opts) {
     opts = opts || {};
 
     // Work with options here
