@@ -35,6 +35,6 @@
     "preview": "node ./examples/preview.js"
   },
   "eslintConfig": {
-    "extends": "eslint-config-postcss"
+    "extends": "eslint-config-postcss/es5"
   }
 }
