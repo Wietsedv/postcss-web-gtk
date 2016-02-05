@@ -2,7 +2,7 @@ var fs = require("fs");
 var postcss = require("postcss");
 var webGtk = require("./../index.js");
 
-var source = __dirname + "/Arc-Darker-gtk3/gtk.css";
+var source = __dirname + "/Adwaita/gtk.css";
 var output = __dirname + "/gtk.css";
 
 var css = fs.readFileSync(source, "utf8");
