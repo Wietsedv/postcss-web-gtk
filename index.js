@@ -3,7 +3,8 @@ var postcss = require('postcss');
 var plugins = {
     atImport: require('postcss-import'),
     GtkColorDefinitions: require('./lib/gtk-color-variables.js'),
-    GtkNodeToWeb: require('./lib/gtk-node-to-web.js')
+    GtkNodeToWeb: require('./lib/gtk-node-to-web.js'),
+    GtkDeclarationParser: require('./lib/gtk-declaration-parser.js')
 };
 
 module.exports = postcss.plugin('postcss-web-gtk', function (opts) {
