@@ -18,3 +18,9 @@ test('Replace color variables with values', t => {
     var output = '.cc{color:#fff;background-color: rgba(0, 0,0,0.5);}';
     return run(t, input, output, {});
 });
+
+test('Replace nodes with classes', t => {
+    var input  = 'test > node.class + node2{color:#fff}node#id node3 {}';
+    var output = '.test > .node.class + .node2{color:#fff}.node#id .node3 {}';
+    return run(t, input, output, {});
+});
