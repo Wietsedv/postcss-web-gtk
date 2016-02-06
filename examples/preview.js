@@ -1,6 +1,6 @@
 var fs = require("fs");
 var postcss = require("postcss");
-var webGtk = require("./../index.js");
+var webGtk = require("../.");
 
 var source = __dirname + "/Adwaita/gtk.css";
 var output = __dirname + "/gtk.css";
