@@ -23,8 +23,7 @@
   "dependencies": {
     "fs": "0.0.2",
     "postcss": "^5.0.14",
-    "postcss-import": "^8.0.2",
-    "postcss-value-parser": "^3.2.3"
+    "postcss-import": "^8.0.2"
   },
   "devDependencies": {
     "ava": "^0.9.1",
