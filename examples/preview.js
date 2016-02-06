@@ -12,7 +12,6 @@ postcss([webGtk])
     .then(function (result) {
         result.warnings().forEach(function (message) {
             console.warn(message.toString());
-
         });
         fs.writeFileSync(output, result.css);
     });
