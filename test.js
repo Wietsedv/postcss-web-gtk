@@ -12,9 +12,9 @@ function run(t, input, output, opts = {}) {
 }
 
 test('Replace color variables with values', t => {
-    var input = 'div{color:@text_color;background-color: @background_color;}' +
+    var input = '.cc{color:@text_color;background-color: @background_color;}' +
         '@define-color text_color #fff;' +
         '@define-color background_color rgba(0, 0,0,0.5);';
-    var output = 'div{color:#fff;background-color: rgba(0, 0,0,0.5);}';
+    var output = '.cc{color:#fff;background-color: rgba(0, 0,0,0.5);}';
     return run(t, input, output, {});
 });

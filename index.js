@@ -1,7 +1,7 @@
 var postcss = require('postcss');
 
 var plugins = {
-    atImport: require("postcss-import"),
+    atImport: require('postcss-import'),
     GtkColorDefinitions: require('./lib/gtk-color-variables.js'),
     GtkNodeToWeb: require('./lib/gtk-node-to-web.js')
 };
