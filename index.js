@@ -1,19 +1,14 @@
-var postcss = require('postcss');
+var postcss = require("postcss");
 
-var plugins = {
-    atImport: require('postcss-import'),
-    GtkColorDefinitions: require('./lib/gtk-color-variables.js'),
-    GtkNodeToWeb: require('./lib/gtk-node-to-web.js')
-};
-
-module.exports = postcss.plugin('postcss-web-gtk', function (opts) {
+module.exports = postcss.plugin("postcss-web-gtk", function (opts) {
     opts = opts || {};
 
     var processor = postcss();
 
-    for (var key in plugins)
-        if (plugins.hasOwnProperty(key))
-            processor.use(plugins[key]);
+    processor.use(require("import-postcss"));
+    processor.use(require("./lib/gtk-color-variables.js"));
+    processor.use(require("./lib/gtk-color-functions.js"));
+    processor.use(require("./lib/gtk-node-to-web.js"));
 
     return processor;
 });

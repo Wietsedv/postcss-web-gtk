@@ -3,14 +3,17 @@ var postcss = require("postcss");
 function filteredSelector(rule, filter) {
     if (rule.selector.indexOf(filter) > -1) {
         var filtered = [];
-        for (var i in rule.selectors)
+        for (var i in rule.selectors) {
             if (rule.selectors.hasOwnProperty(i) &&
-                rule.selectors[i].indexOf(filter) == -1)
+                rule.selectors[i].indexOf(filter) === -1) {
                 filtered.push(rule.selectors[i]);
+            }
+        }
         if (filtered.length > 0) {
             rule.selector = filtered.join(", ");
-        } else
+        } else {
             rule.remove();
+        }
     }
     return rule.selector;
 }
