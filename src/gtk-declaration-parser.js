@@ -1,5 +1,3 @@
-"use strict";
-
 var postcss = require("postcss");
 
 module.exports = postcss.plugin("gtk-declaration-parser", function (opts) {
@@ -12,16 +10,17 @@ module.exports = postcss.plugin("gtk-declaration-parser", function (opts) {
     return function (css) {
         css.walkDecls(function (decl) {
             var property = decl.prop;
-            if (property.match(/^-gtk/i)) decl.remove();
-            // TODO Do not remove useful properties, but convert them
+            if (property.match(/^-gtk/i))
+                decl.remove();
 
             if (decl.value.match(fastFilter)) {
-                for (var replace in newValues) {
-                    if (newValues.hasOwnProperty(replace) && decl.value.match(newValues[replace])) {
+                for (var replace in newValues)
+                    if (newValues.hasOwnProperty(replace) &&
+                        decl.value.match(newValues[replace])) {
                         decl.value = decl.value.replace(newValues[replace], replace);
                         return;
                     }
-                }decl.remove();
+                decl.remove();
             }
         });
     };

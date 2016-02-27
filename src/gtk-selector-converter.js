@@ -1,5 +1,3 @@
-"use strict";
-
 var postcss = require("postcss");
 var selectorParser = require("postcss-selector-parser");
 
@@ -15,7 +13,7 @@ var gtkNodes = {
     }
 };
 
-var filterTags = function filterTags(tagNode) {
+var filterTags = function (tagNode) {
     var nodeName = tagNode.value;
     if (gtkNodes.hasOwnProperty(nodeName)) {
         var gtkNode = gtkNodes[nodeName];
@@ -31,7 +29,7 @@ var filterTags = function filterTags(tagNode) {
     }
 };
 
-var filterClasses = function filterClasses(classNode) {
+var filterClasses = function (classNode) {
     var prevNode = classNode;
     while (prevNode.prev()) {
         if (prevNode.prev().type == 'combinator') // TODO Test this line
@@ -40,23 +38,28 @@ var filterClasses = function filterClasses(classNode) {
     }
 
     var searchNodes;
-    if (prevNode.type == 'tag') searchNodes = [prevNode.value, '*'];else searchNodes = Object.keys(gtkNodes);
+    if (prevNode.type == 'tag')
+        searchNodes = [prevNode.value, '*'];
+    else
+        searchNodes = Object.keys(gtkNodes);
 
     for (var nodeKey in searchNodes) {
         if (searchNodes.hasOwnProperty(nodeKey)) {
             var classes = gtkNodes[searchNodes[nodeKey]].classes;
-            if (classes === false) break;
-            if (classes.indexOf(classNode.value) > -1) return;
+            if (classes === false)
+                break;
+            if (classes.indexOf(classNode.value) > -1)
+                return;
         }
     }
     classNode.parent.removeSelf();
 };
 
-var transform = function transform(selectors) {
+var transform = function (selectors) {
     selectors.eachTag(filterTags);
     selectors.eachClass(filterClasses);
 
-    selectors.eachPseudo(function (pseudo) {
+    selectors.eachPseudo(function(pseudo) {
         //TODO Support pseudo classes
         pseudo.parent.removeSelf();
     });
@@ -65,10 +68,12 @@ var transform = function transform(selectors) {
 module.exports = postcss.plugin("gtk-selector-fixer", function (opts) {
     return function (css) {
         css.walkRules(function (rule) {
-            if (rule.parent.type == "atrule") return;
+            if (rule.parent.type == "atrule")
+                return;
 
             rule.selector = selectorParser(transform).process(rule.selector).result;
-            if (rule.selector.length == 0) rule.remove();
+            if (rule.selector.length == 0)
+                rule.remove();
         });
     };
 });
