@@ -14,8 +14,6 @@ module.exports = require("postcss-functions")({
         },
 
         shade(cl, value) {
-            console.log(cl);
-            console.log(color(cl).toRgbaArray());
             var [r, g, b, a] = color(cl).toRgbaArray();
             var [h, s, l] = convert.rgb.hsl(r, g, b);
             l *= value;
