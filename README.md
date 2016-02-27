@@ -6,22 +6,6 @@
 [ci-img]:  https://travis-ci.org/Wietsedv/postcss-web-gtk.svg
 [ci]:      https://travis-ci.org/Wietsedv/postcss-web-gtk
 
-```css
-.foo {
-    /* Input example */
-}
-```
+This project is in heavy development and should not be expected to work properly.
 
-```css
-.foo {
-  /* Output example */
-}
-```
-
-## Usage
-
-```js
-postcss([ require('postcss-web-gtk') ])
-```
-
-See [PostCSS] docs for examples for your environment.
+The goal of this project is to be able to create interfaces in pure HTML5 en CSS3 that are indistinguishable from real native GTK interfaces. In first instance this will be done by converting any GTK 3.20 theme file to web compatible CSS3. When this goal is succeeded, support for older GTK versions will be added.
